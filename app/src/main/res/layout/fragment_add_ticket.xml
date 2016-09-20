@@ -1,0 +1,138 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.patrikpatinak.betgraph.AddTicketFragment"
+    android:background="@android:color/white">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/primaryColor"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:elevation="4dp"
+        >
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|bottom">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Number of matches"
+            android:id="@+id/textView5"
+            android:layout_marginTop="33dp"
+            android:layout_below="@+id/editText"
+            android:layout_centerHorizontal="true" />
+
+        <NumberPicker
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/numberOfMatches"
+            android:paddingTop="5dp"
+            android:layout_alignParentStart="true"
+            tools:ignore="RtlCompat"
+            android:background="@android:color/transparent"
+            android:layout_below="@+id/textView5"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Insert deposit"
+            android:id="@+id/textView6"
+            android:paddingTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/deposit"
+            android:textAlignment="center"
+            android:background="@drawable/edit_text_design"
+            android:layout_alignBottom="@+id/textView6"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/rate"
+            android:background="@drawable/edit_text_design"
+            android:layout_alignBottom="@+id/textView7"
+            android:layout_alignLeft="@+id/deposit"
+            android:layout_alignStart="@+id/deposit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Rate"
+            android:id="@+id/textView7"
+            android:autoText="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:paddingTop="20dp"
+            android:layout_below="@+id/deposit"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Possible Win"
+            android:id="@+id/textView2"
+            android:paddingTop="20dp"
+            android:layout_below="@+id/textView7"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="10dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/win"
+            android:background="@drawable/edit_text_design"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignRight="@+id/rate"
+            android:layout_alignEnd="@+id/rate"
+            android:focusable="false"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/FAB2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:elevation="6dp"
+            app:layout_anchorGravity="bottom|right|end"
+            android:src="@mipmap/ic_done_white_18dp"
+            app:backgroundTint="@color/colorAccent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp" />
+
+    </RelativeLayout>
+
+</FrameLayout>
