@@ -43,12 +43,7 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-                <SearchView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/searchView"
-                    android:layout_gravity="center_horizontal|top"
-                    tools:targetApi="honeycomb" />
+
             </android.support.v7.widget.Toolbar>
 
 

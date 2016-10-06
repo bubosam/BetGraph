@@ -13,20 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.NumberPicker;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class AddTicketFragment extends Fragment {
 private NumberPicker numberPicker;
     private EditText deposit;
     private EditText rate;
     private EditText possibleWin;
     private FloatingActionButton submit;
-    private String date;
     private Context context;
 
     public AddTicketFragment() {
@@ -39,7 +35,9 @@ private NumberPicker numberPicker;
     @SuppressLint("NewApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
+
         View view = inflater.inflate(R.layout.fragment_add_ticket,container,false);
         numberPicker =(NumberPicker) view.findViewById(R.id.numberOfMatches);
         deposit =(EditText) view.findViewById(R.id.deposit);
@@ -50,6 +48,8 @@ private NumberPicker numberPicker;
         context=getActivity().getApplicationContext();
         final DatabaseOperations db = new DatabaseOperations(context);
         db.getReadableDatabase();
+
+
         deposit.setGravity(Gravity.CENTER);
         rate.setGravity(Gravity.CENTER);
         possibleWin.setGravity(Gravity.CENTER);
@@ -70,6 +70,7 @@ private NumberPicker numberPicker;
                             String depositNumber= String.valueOf(deposit.getText());
                             String rateNumber=String.valueOf(rate.getText());
                             float multiply = Float.valueOf(depositNumber)*Float.valueOf(rateNumber);
+
                             possibleWin.setText(String.valueOf(multiply));
                             String winNumber=String.valueOf(possibleWin.getText());
 

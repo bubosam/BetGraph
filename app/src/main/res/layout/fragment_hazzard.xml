@@ -31,7 +31,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/edit_text_design"
             android:textAlignment="center"
-            android:paddingTop="12px" />
+            android:paddingTop="12px"
+            android:gravity="center"/>
 
 
         <LinearLayout

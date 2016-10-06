@@ -1,23 +1,17 @@
 package com.example.patrikpatinak.betgraph;
 
 import android.support.v4.app.Fragment;
-import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.TextView;
-
 import java.util.Calendar;
 
 public class AddTicketActivity extends AppCompatActivity {
+
     private Toolbar toolbar;
     private DatePicker datePicker;
 
@@ -36,6 +30,7 @@ public class AddTicketActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("Add new ticket");
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,9 +38,12 @@ public class AddTicketActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         Calendar calendar= Calendar.getInstance();
-        MyOnDateChangeListener onDateChangeListener = new MyOnDateChangeListener();
-        datePicker.init(calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH), onDateChangeListener);
+           MyOnDateChangeListener onDateChangeListener = new MyOnDateChangeListener();
+                datePicker.init(calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH), onDateChangeListener);
 
 
     }
@@ -70,6 +68,8 @@ public class AddTicketActivity extends AppCompatActivity {
             fragmentManager.beginTransaction().replace(R.id.relativeReplace, fragment).addToBackStack("AddTicketActivity").commit();
 
         }
+
+
     }
 
 

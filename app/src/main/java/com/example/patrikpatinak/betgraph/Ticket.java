@@ -41,8 +41,7 @@ public class Ticket {
     }
 
     public float getWin() {
-        return win;
-    }
+        return win;}
 
     @Override
     public String toString() {

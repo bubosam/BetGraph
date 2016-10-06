@@ -1,11 +1,9 @@
 package com.example.patrikpatinak.betgraph;
 
-import android.app.Activity;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -55,7 +53,6 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.MyViewHold
     }
 
 
-
     public TicketAdapter(List<Ticket> ticketList,int counter) {
         this.ticketList = ticketList;
         this.counter = counter;
@@ -75,18 +72,19 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.MyViewHold
 
 
     @Override
-    public void onBindViewHolder(TicketAdapter.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final TicketAdapter.MyViewHolder holder, final int position) {
         final Ticket ticket = ticketList.get(position);
         holder.deposit.setText(ticket.getDeposit()+" €");
         holder.rate.setText(ticket.getRate()+"");
-        holder.win.setText(ticket.getWin()+" €");
+        holder.win.setText(String.format("%.2f €", ticket.getWin()));
         holder.date.setText(ticket.getDate()+"");
         holder.success.setImageResource(R.drawable.ic_confirm);
         holder.fault.setImageResource(R.drawable.ic_refuse);
 
 
 
-        final int pos = position;
+
+
 
         holder.v.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -99,7 +97,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.MyViewHold
                                 String ticketId= ticket.getId()+"";
                                 final DatabaseOperations db = new DatabaseOperations(context);
                                 db.deleteMatch(db,ticketId);
-                                delete(position);
+                                delete(holder.getAdapterPosition());
                                 Toast.makeText(v.getContext(),"Ticket has been deleted",Toast.LENGTH_SHORT).show();
                                 break;
 
@@ -117,7 +115,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.MyViewHold
             }
         });
 
-        holder.success.setOnClickListener(new View.OnClickListener() {
+       holder.success.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
 
@@ -140,7 +138,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.MyViewHold
                                 editor.commit();
                                 final DatabaseOperations db = new DatabaseOperations(context);
                                 db.deleteMatch(db,ticketId);
-                                delete(position);
+                                delete(holder.getAdapterPosition());
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
@@ -158,7 +156,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.MyViewHold
             }
         });
 
-        holder.fault.setOnClickListener(new View.OnClickListener() {
+       holder.fault.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
 
@@ -170,7 +168,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.MyViewHold
                             case DialogInterface.BUTTON_POSITIVE:
                                 float balance = ticket.getDeposit()*-1;
                                 String ticketId= ticket.getId()+"";
-                                Toast.makeText(v.getContext(),"We are sory for losing your ticket, better luck next time, it has been marked to your graph!",Toast.LENGTH_LONG).show();
+                                Toast.makeText(v.getContext(),"We are sorry for losing your ticket, better luck next time, it has been marked to your graph!",Toast.LENGTH_LONG).show();
                                 Log.d("Negative balance",String.valueOf(balance));
                                 counter++;
                                 prefs=context.getSharedPreferences("MYPREFS",0);
@@ -180,7 +178,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.MyViewHold
                                 editor.commit();
                                 final DatabaseOperations db = new DatabaseOperations(context);
                                 db.deleteMatch(db,ticketId);
-                                delete(position);
+                                delete(holder.getAdapterPosition());
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:

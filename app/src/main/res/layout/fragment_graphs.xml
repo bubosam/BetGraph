@@ -11,6 +11,7 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/scrollViewGraph"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
 
@@ -29,22 +30,23 @@
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="false"></ScrollView>
+    android:fillViewport="false">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="right|center_vertical">
+        android:layout_gravity="right|center_vertical"
+        android:paddingTop="20dp">
         <com.jjoe64.graphview.GraphView
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="240dp"
             android:id="@+id/graph"
             android:layout_gravity="center"
             app:seriesType="line"
             app:seriesColor="#ee0000"
             app:seriesData="0=5;2=5;3=0;4=2"
-            android:paddingTop="10dp"
+            android:paddingTop="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp" />
 
@@ -107,7 +109,21 @@
             android:id="@+id/NOB"
             android:layout_gravity="center_horizontal" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/FAB_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+
+            app:layout_anchorGravity="bottom|right|end"
+            android:src="@drawable/ic_refresh_white_24dp"
+            app:backgroundTint="@color/colorAccent"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp" />
+
+
     </LinearLayout>
+</ScrollView>
 
 
 </FrameLayout>

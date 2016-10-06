@@ -1,29 +1,22 @@
 package com.example.patrikpatinak.betgraph;
 
 
-import android.app.Activity;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.DataSetObserver;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.ArraySet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.AbsListView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -32,7 +25,7 @@ public class TicketsFragment extends Fragment implements OnVisibleCallback {
 
     private FloatingActionButton fab;
     private Context context;
-    private NestedScrollView nestedView;
+    NestedScrollView nestedView;
     private RecyclerView recyclerView;
     private int counter;
     private SharedPreferences sp;
@@ -49,13 +42,18 @@ public class TicketsFragment extends Fragment implements OnVisibleCallback {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tickets, container, false);
+
         context = getActivity();
         sp = getActivity().getSharedPreferences("MYPREFS",0);
+
+
         fab = (FloatingActionButton) getActivity().findViewById(R.id.FAB);
         nestedView = (NestedScrollView) view.findViewById(R.id.nestedView);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        final DatabaseOperations db = new DatabaseOperations(context);
         noTicket = (TextView) view.findViewById(R.id.noTicket);
+
+        final DatabaseOperations db = new DatabaseOperations(context);
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         fab.setOnClickListener(new View.OnClickListener() {
@@ -97,8 +95,8 @@ public class TicketsFragment extends Fragment implements OnVisibleCallback {
 
 
 
-        counter = sp.getInt("counter", 0);
-        Log.d("Counter", String.valueOf(counter));
+        counter = getCounter();
+        Log.d("Counter_Ticket_Fragment", String.valueOf(counter));
 
         mAdapter = new TicketAdapter(new ArrayList<Ticket>(Arrays.asList(myList)),counter);
         changeVisible();
@@ -112,10 +110,21 @@ public class TicketsFragment extends Fragment implements OnVisibleCallback {
 
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void setUserVisibleHint(boolean visible) {
+        super.setUserVisibleHint(visible);
+        if (visible && isResumed()) {
 
+            counter = getCounter();
+        }
     }
+
+    private int getCounter() {
+        counter = sp.getInt("counter", 0);
+        Log.d("Counter_Ticket_Fragment", String.valueOf(counter));
+        Log.d("ticket","prepol sa na ticket");
+        return counter;
+    }
+
 
     @Override
     public void changeVisible() {
@@ -126,5 +135,7 @@ public class TicketsFragment extends Fragment implements OnVisibleCallback {
             noTicket.setVisibility(View.VISIBLE);
         }
     }
+
+
 }
 
