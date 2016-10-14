@@ -1,6 +1,7 @@
 package com.example.patrikpatinak.betgraph;
 
 import android.content.Context;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -51,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         setToolbar();
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         setImage();
+        setToolbarTitle();
 
         mViewPager= (ViewPager) findViewById(R.id.viewpager);
         mTabLayout= (TabLayout) findViewById(R.id.tab_layout);
@@ -114,7 +117,30 @@ public class MainActivity extends AppCompatActivity {
 
     private void setImage()
     {
-        Glide.with(this).load(R.drawable.nkdroid_splash).into(imageView);
+        Glide.with(this).load(R.drawable.logo_white).into(imageView);
+    }
+
+    private void setToolbarTitle(){
+        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    collapsingToolbarLayout.setTitle("BetGraph");
+                    isShow = true;
+                } else if(isShow) {
+                    collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
+                    isShow = false;
+                }
+            }
+    });
     }
 
     class TabPagerAdapter extends FragmentStatePagerAdapter {

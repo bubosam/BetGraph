@@ -2,20 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:paddingBottom="8dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:id="@+id/cv"
-        android:background="@android:color/white"
-        >
+        android:background="@color/colorTextPrimary">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="16dp"
-            android:background="@android:color/white">
+            android:background="@color/colorRecyclerView">
 
 
             <TextView
@@ -26,7 +26,8 @@
                 android:id="@+id/textView4"
                 android:layout_above="@+id/textView9"
                 android:layout_toLeftOf="@+id/dateOfMAtch"
-                android:layout_toStartOf="@+id/dateOfMAtch" />
+                android:layout_toStartOf="@+id/dateOfMAtch"
+                android:textColor="@color/colorTextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -37,7 +38,8 @@
                 android:paddingTop="10dp"
                 android:layout_centerVertical="true"
                 android:layout_alignLeft="@+id/textView4"
-                android:layout_alignStart="@+id/textView4" />
+                android:layout_alignStart="@+id/textView4"
+                android:textColor="@color/colorTextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,7 +51,8 @@
                 android:paddingBottom="10dp"
                 android:layout_above="@+id/mDivider"
                 android:layout_alignLeft="@+id/textView9"
-                android:layout_alignStart="@+id/textView9" />
+                android:layout_alignStart="@+id/textView9"
+                android:textColor="@color/colorTextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -60,7 +63,8 @@
                 android:paddingLeft="10dp"
                 android:layout_alignTop="@+id/textView4"
                 android:layout_alignLeft="@+id/rateOfTicket"
-                android:layout_alignStart="@+id/rateOfTicket" />
+                android:layout_alignStart="@+id/rateOfTicket"
+                android:textColor="@color/colorTextPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -69,7 +73,8 @@
                 android:text="Medium Text"
                 android:id="@+id/rateOfTicket"
                 android:paddingLeft="10dp"
-                android:layout_above="@+id/textView10"
+                android:textColor="@color/colorTextPrimary"
+                android:layout_alignBottom="@+id/textView9"
                 android:layout_toRightOf="@+id/textView10"
                 android:layout_toEndOf="@+id/textView10" />
 
@@ -83,7 +88,8 @@
                 android:paddingBottom="10dp"
                 android:layout_above="@+id/mDivider"
                 android:layout_alignLeft="@+id/rateOfTicket"
-                android:layout_alignStart="@+id/rateOfTicket" />
+                android:layout_alignStart="@+id/rateOfTicket"
+                android:textColor="@color/colorTextPrimary" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -109,7 +115,8 @@
                 android:text="Small Text"
                 android:id="@+id/dateOfMAtch"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorTextPrimary" />
 
             <ImageView
 

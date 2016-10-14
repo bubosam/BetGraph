@@ -75,7 +75,7 @@ public class GraphsFragment extends Fragment {
         if (visible && isResumed())
         {
             refreshUI();
-            hideKeyboard();
+           hideKeyboard();
         }
 
     }
@@ -111,6 +111,7 @@ public class GraphsFragment extends Fragment {
 
             graph.setTitle("Your Bets ");
             graph.setTitleTextSize(90);
+            graph.setTitleColor(Color.parseColor("#044041"));
             graph.setBackgroundColor(Color.WHITE);
 
             graph.getGridLabelRenderer().setLabelFormatter(new DefaultLabelFormatter() {
@@ -154,7 +155,7 @@ public class GraphsFragment extends Fragment {
         View view = this.getActivity().getCurrentFocus();
         if (view != null) {
             InputMethodManager inputManager = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.RESULT_HIDDEN);
         }
     }
 

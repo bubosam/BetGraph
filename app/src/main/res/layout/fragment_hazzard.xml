@@ -2,10 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.patrikpatinak.betgraph.HazzardFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nestedView"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingBottom="0dp">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -20,7 +26,10 @@
             android:text="Deposit"
             android:id="@+id/textView15"
             android:layout_gravity="center_horizontal"
-            android:paddingTop="64px" />
+            android:paddingTop="24px"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:paddingBottom="24px" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -48,34 +57,38 @@
                 android:text="Did you win or lose?"
                 android:id="@+id/textView16"
                 android:layout_gravity="center_horizontal"
-                android:paddingTop="64px" />
+                android:paddingTop="64px"
+                android:textColor="@color/colorTextPrimary" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="16dp">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:id="@+id/success2"
-                    android:src="@drawable/ic_confirm"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
+
+                    android:background="@drawable/ic_confirm"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentLeft="false"
                     android:layout_alignParentStart="true"
-                    android:background="@null"/>
+                    android:layout_marginLeft="24dp" />
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:id="@+id/fail2"
-                    android:src="@drawable/ic_refuse"
-                    android:background="@null"
-                    android:layout_alignParentTop="true"
+                    android:background="@drawable/ic_refuse"
+                    android:layout_alignParentBottom="false"
                     android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="false"
+                    android:layout_marginRight="24dp" />
             </RelativeLayout>
 
         </LinearLayout>
     </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </FrameLayout>

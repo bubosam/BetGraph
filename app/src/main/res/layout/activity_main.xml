@@ -43,7 +43,6 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-
             </android.support.v7.widget.Toolbar>
 
 
@@ -76,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="center_horizontal"
-            android:background="#00000000"
+            android:background="@color/primaryColorDark"
             app:layout_anchor="@+id/appbar"
             app:layout_anchorGravity="center_horizontal"
             app:layout_collapseMode="none"
@@ -92,16 +91,7 @@
     </FrameLayout>
 
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/FAB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_gravity="bottom|end"
 
-        app:layout_anchorGravity="bottom|right|end"
-        android:src="@drawable/plus"
-        app:backgroundTint="@color/colorAccent" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -115,4 +105,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/moc"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/FAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"
+
+        app:layout_anchorGravity="bottom|right|end"
+        android:src="@drawable/plus"
+        app:backgroundTint="@color/colorAccent" />
 </android.support.design.widget.CoordinatorLayout>

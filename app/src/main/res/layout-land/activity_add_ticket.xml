@@ -11,7 +11,8 @@
         android:background="@color/colorAccent"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:elevation="4dp">
+        android:elevation="4dp"
+       >
     </android.support.v7.widget.Toolbar>
 <FrameLayout
     android:layout_width="match_parent"
@@ -24,7 +25,8 @@
         android:id="@+id/datePicker"
         android:layout_above="@+id/button"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center" />
+        android:layout_gravity="center_horizontal|bottom"
+        android:paddingBottom="20dp" />
 
 
 </FrameLayout>

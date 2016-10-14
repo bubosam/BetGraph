@@ -1,11 +1,16 @@
 package com.example.patrikpatinak.betgraph;
 
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.DatePicker;
 import java.util.Calendar;
@@ -29,7 +34,12 @@ public class AddTicketActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setTitle("Add new ticket");
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'> Add new ticket</font>"));
+
+
+
+
+
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

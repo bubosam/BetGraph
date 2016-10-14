@@ -6,9 +6,9 @@
     tools:context="com.example.patrikpatinak.betgraph.AddTicketFragment"
     android:background="@android:color/white">
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_fragment_Add"
         android:minHeight="?attr/actionBarSize"
-        android:background="@color/primaryColor"
+        android:background="@color/colorAccent"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:elevation="4dp"
@@ -32,20 +32,19 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Number of matches"
             android:id="@+id/textView5"
-            android:layout_marginTop="33dp"
             android:layout_below="@+id/editText"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp" />
 
         <NumberPicker
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:id="@+id/numberOfMatches"
-            android:paddingTop="5dp"
             android:layout_alignParentStart="true"
             tools:ignore="RtlCompat"
             android:background="@android:color/transparent"
             android:layout_below="@+id/textView5"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerVertical="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,7 +52,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Insert deposit"
             android:id="@+id/textView6"
-            android:paddingTop="20dp"
+            android:paddingTop="30dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -69,7 +68,8 @@
             android:background="@drawable/edit_text_design"
             android:layout_alignBottom="@+id/textView6"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:freezesText="true"/>
 
         <EditText
             android:layout_width="wrap_content"
@@ -80,7 +80,8 @@
             android:background="@drawable/edit_text_design"
             android:layout_alignBottom="@+id/textView7"
             android:layout_alignLeft="@+id/deposit"
-            android:layout_alignStart="@+id/deposit" />
+            android:layout_alignStart="@+id/deposit"
+            android:freezesText="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -106,7 +107,8 @@
             android:layout_below="@+id/textView7"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:paddingLeft="10dp" />
+            android:paddingLeft="10dp"
+            android:paddingBottom="-30dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -118,7 +120,10 @@
             android:layout_alignBottom="@+id/textView2"
             android:layout_alignRight="@+id/rate"
             android:layout_alignEnd="@+id/rate"
-            android:focusable="false"/>
+            android:focusable="false"
+            android:scrollIndicators="bottom"
+            android:freezesText="true"/>
+
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/FAB2"
@@ -131,7 +136,7 @@
             app:backgroundTint="@color/colorAccent"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="10dp" />
 
     </RelativeLayout>
 

@@ -17,18 +17,19 @@
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:background="@color/primaryColorDark">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_height="200dp"
-                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
                     android:id="@+id/backdrop"
                     app:layout_collapseMode="none"
-                    android:scaleType="fitXY"
+                    android:scaleType="fitCenter"
                     android:fitsSystemWindows="true"
                     android:layout_centerHorizontal="true"
                     android:paddingTop="24dp"/>
@@ -42,11 +43,7 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-                <SearchView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/searchView"
-                    android:layout_gravity="center_horizontal|top" />
+
             </android.support.v7.widget.Toolbar>
 
 
@@ -69,7 +66,7 @@
             android:id="@+id/tabBg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/primaryColor"
+            android:background="@color/primaryColorDark"
             android:scaleType="fitXY" />
 
 
@@ -95,16 +92,7 @@
     </FrameLayout>
 
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/FAB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_gravity="bottom|end"
 
-        app:layout_anchorGravity="bottom|right|end"
-        android:src="@drawable/plus"
-        app:backgroundTint="@color/colorAccent" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -118,4 +106,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/moc"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/FAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"
+
+        app:layout_anchorGravity="bottom|right|end"
+        android:src="@drawable/plus"
+        app:backgroundTint="@color/colorAccent" />
 </android.support.design.widget.CoordinatorLayout>

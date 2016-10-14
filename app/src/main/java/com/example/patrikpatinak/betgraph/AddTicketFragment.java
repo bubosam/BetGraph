@@ -7,10 +7,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
@@ -18,12 +23,14 @@ import android.widget.Toast;
 
 
 public class AddTicketFragment extends Fragment {
-private NumberPicker numberPicker;
+
+    private NumberPicker numberPicker;
     private EditText deposit;
     private EditText rate;
     private EditText possibleWin;
     private FloatingActionButton submit;
     private Context context;
+    private Toolbar toolbar;
 
     public AddTicketFragment() {
         // Required empty public constructor
@@ -39,6 +46,8 @@ private NumberPicker numberPicker;
     {
 
         View view = inflater.inflate(R.layout.fragment_add_ticket,container,false);
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE| WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        toolbar = (Toolbar) view.findViewById(R.id.toolbar_fragment_Add);
         numberPicker =(NumberPicker) view.findViewById(R.id.numberOfMatches);
         deposit =(EditText) view.findViewById(R.id.deposit);
         rate= (EditText) view.findViewById(R.id.rate);
@@ -57,7 +66,13 @@ private NumberPicker numberPicker;
         numberPicker.setMinValue(1);
         numberPicker.setWrapSelectorWheel(true);
 
-        Bundle bundle = this.getArguments();
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+     //   ((AppCompatActivity) getActivity()).getSupportActionBar().
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'> Add new ticket</font>"));
+
+                Bundle bundle = this.getArguments();
         final String dateNumber = bundle.getString("date",null);
 
         submit.setOnClickListener(new View.OnClickListener() {
